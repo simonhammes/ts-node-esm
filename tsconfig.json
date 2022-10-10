@@ -11,5 +11,5 @@
         // Disable emitting files
         "noEmit": true,
     },
-    "files": ["src/index.ts"],
+    "files": ["src/index.ts", "tests/lib.test.ts", "jest.config.ts"],
 }
