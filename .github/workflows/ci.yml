@@ -38,4 +38,4 @@ jobs:
           cache: pnpm
           node-version: ${{ matrix.node }}
       - run: pnpm install
-      - run: pnpm test
+      - run: pnpm test -- --colors
