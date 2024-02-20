@@ -5,28 +5,11 @@ env:
   PNPM_VERSION: 8
 
 jobs:
-  Build:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node: [18, 20]
-    steps:
-      - uses: actions/checkout@v3
-      - uses: pnpm/action-setup@v2
-        with:
-          version: ${{ env.PNPM_VERSION }}
-      - name: Setup NodeJS ${{ matrix.node }}
-        uses: actions/setup-node@v3
-        with:
-          cache: pnpm
-          node-version: ${{ matrix.node }}
-      - run: pnpm install
-      - run: pnpm start
   Tests:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [18, 20]
+        node: [18, 20, 21]
     steps:
       - uses: actions/checkout@v3
       - uses: pnpm/action-setup@v2
@@ -38,4 +21,6 @@ jobs:
           cache: pnpm
           node-version: ${{ matrix.node }}
       - run: pnpm install
-      - run: pnpm test -- --colors
+      - run: pnpm build
+      - run: pnpm start
+      - run: pnpm test
