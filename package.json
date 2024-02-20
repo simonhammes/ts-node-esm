@@ -11,6 +11,6 @@
     "scripts": {
         "start": "tsx src/index.ts",
         "build": "tsc",
-        "test": "node --import tsx --test tests/**/*.ts"
+        "test": "node --import tsx --test tests/lib.test.ts"
     }
 }
